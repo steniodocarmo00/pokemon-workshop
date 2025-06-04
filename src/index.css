@@ -1,0 +1,219 @@
+/* Reseta margens e padding de todos os elementos, define box-sizing e fonte padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Urbanist", sans-serif;
+}
+
+/* Define tamanho base da fonte do HTML para facilitar cálculo em rem (1rem = 10px) */
+html {
+  font-size: 62.5%;
+}
+
+/* Define largura total e cor de fundo do corpo da página */
+body {
+  width: 100%;
+  background-color: #dc0a2d; /* vermelho característico do tema Pokémon */
+}
+
+/* Container principal centralizado, com largura máxima e texto alinhado ao centro */
+.container {
+  max-width: 152rem;
+  margin: auto;
+  text-align: center;
+}
+
+/* Espaçamento acima e abaixo do cabeçalho */
+header {
+  margin: 3.2rem 0;
+}
+
+/* Estiliza todos os títulos h1 */
+h1 {
+  font-size: 5.4rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Área de busca de Pokémon: ocupa largura total, centraliza o conteúdo e adiciona margem inferior */
+.pokemon-search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3.2rem;
+}
+
+/* Estilização do campo de input do tipo texto */
+input[type="text"] {
+  appearance: none;                  /* remove estilos padrão do navegador */
+  border: none;                      /* remove bordas padrão */
+  outline: none;                     /* remove contorno ao focar */
+  width: 32rem;                      /* largura definida em rem */
+  border-bottom: 0.2em solid #020d35; /* borda inferior escura */
+  border-radius: 0.2em 0.2em 0 0;    /* borda arredondada apenas nas bordas superiores */
+  padding: 0.8em;                    /* espaçamento interno */
+  font-size: 1.6rem;                 /* tamanho da fonte */
+  color: #000000;                    /* cor do texto preta */
+}
+
+/* Remove qualquer foco visível no input ao ser clicado */
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Grid de cards: 4 colunas de tamanho igual, com espaçamento entre elementos */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;  /* centraliza cada card horizontalmente na coluna */
+  align-items: start;     /* alinha todos os cards ao topo, evitando que “tremam” ao terem alturas diferentes */
+  gap: 3.2rem;            /* espaço entre cada card */
+}
+
+/* Estilo do card do Pokémon: define largura, altura mínima, sombra, cor de fundo, borda e padding */
+.pokemon-card {
+  width: 36rem;
+  min-height: 42rem;
+  box-shadow:
+    rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,  /* sombra sutil para profundidade */
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;   /* contorno fino escuro */
+  background-color: #dedede;               /* fundo cinza claro */
+  border-style: solid;
+  border-width: 0.4rem;                   /* borda grossa para destaque */
+  border-radius: 0.2rem;                  /* cantos ligeiramente arredondados */
+  padding: 1.6rem;                        /* espaçamento interno */
+  position: relative;                     /* permite posicionamento absoluto de elementos filhos, se necessário */
+}
+
+/* Remove pseudo-elemento decorativo padrão dos cards (caso exista) */
+.pokemon-card::before {
+  display: none;
+}
+
+/* Remove qualquer efeito de hover nos cards (sem mudança visual ao passar o mouse) */
+.pokemon-card:hover {
+  /* sem alterações */
+}
+
+/* Centraliza a figura (imagem) dentro do card e aplica sombra projetada por trás */
+figure {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  filter: drop-shadow(0px 50px 100px rgba(50, 50, 93, 0.25)); /* sombra difusa abaixo da imagem */
+}
+
+/* Define tamanho da imagem do Pokémon dentro do card */
+.pokemon-image {
+  width: 60%;    /* largura relativa ao contêiner pai */
+  height: 15rem; /* altura fixa em rem */
+}
+
+/* Estilo do nome do Pokémon: tamanho da fonte, cor e transformação de texto para capitalizar */
+.pokemon-name {
+  font-size: 3.2rem;
+  text-align: center;
+  color: #000;
+  text-transform: capitalize; /* deixa primeira letra maiúscula */
+  margin-top: 2.4rem;         /* espaçamento acima do nome */
+}
+
+/* Container para exibir o(s) tipo(s) do Pokémon, com centralização */
+.pokemon-highlight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.6rem 0; /* espaço acima e abaixo */
+}
+
+.pokemon-highlight p {
+  font-size: 1.6rem;
+  color: #000;
+  text-transform: capitalize; /* capitaliza o texto (ex: “fire” vira “Fire”) */
+}
+
+/* Grid interno de 3 colunas para atributos: altura, peso e velocidade */
+.grid-three-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* três colunas de tamanho igual */
+  gap: 1.6rem;                           /* espaço entre colunas */
+  text-align: center;                    /* centraliza texto em cada célula */
+  margin: 3.2rem 0;                      /* margem acima e abaixo */
+  align-items: end;                      /* alinha o conteúdo ao fundo de cada célula, para uniformidade */
+}
+
+/* Estilo genérico para informações do Pokémon dentro do card */
+.pokemon-info {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.pokemon-info span {
+  font-weight: bold; /* texto em negrito para os labels (ex: “Height:”) */
+}
+
+/* Segunda grade de 3 colunas para experiência, ataque e habilidades */
+/* Ajusta espaçamento do parágrafo interno para não haver margem */
+.grid-three-cols .pokemon-info p {
+  margin: 0;
+}
+
+/* Estilo geral para botões: cursor, fonte, padding, borda, arredondamento, cor de fundo e transição */
+button {
+  cursor: pointer;
+  font-size: 1.6rem;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: #020d35; /* azul-escuro padrão */
+  color: #fff;
+  transition: background-color 0.2s; /* animação suave ao passar o mouse */
+}
+
+/* Cor de fundo ao passar o mouse em qualquer botão */
+button:hover {
+  background-color: #0a1749; /* tom mais escuro de azul */
+}
+
+/* Área de ações (e.g., botão “Adicionar Novo Pokémon”) com margem inferior */
+.actions-bar {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Botão “Adicionar Novo Pokémon”: cor verde para ação positiva */
+.btn-add {
+  background-color: #28a745; /* verde */
+}
+
+.btn-add:hover {
+  background-color: #218838; /* verde mais escuro ao hover */
+}
+
+/* Container interno do card que agrupa botões de “Editar” e “Apagar” */
+.card-actions {
+  display: flex;
+  justify-content: center; /* centraliza botões horizontalmente */
+  gap: 1.2rem;             /* espaço entre os botões */
+  margin-top: 1.6rem;      /* espaço acima dos botões */
+}
+
+/* Botão “Editar”: cor amarela para indicar edição */
+.btn-edit {
+  background-color: #ffc107; /* amarelo */
+}
+
+.btn-edit:hover {
+  background-color: #e0a800; /* amarelo mais escuro ao hover */
+}
+
+/* Botão “Apagar”: cor vermelha para ação de exclusão */
+.btn-delete {
+  background-color: #dc3545; /* vermelho */
+}
+
+.btn-delete:hover {
+  background-color: #c82333; /* vermelho mais escuro ao hover */
+}
+
