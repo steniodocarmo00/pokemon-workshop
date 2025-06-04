@@ -12,11 +12,6 @@ export default function App() {
           <h1 className="title">Pokédex</h1>
         </header>
 
-        {/* Barra de ações, por enquanto com botão para adicionar novo Pokémon */}
-        <div className="actions-bar">
-          <button className="btn-add">Adicionar Novo Pokémon</button>
-        </div>
-
         {/* Input para buscar Pokémon pelo nome */}
         <div className="pokemon-search">
           <input

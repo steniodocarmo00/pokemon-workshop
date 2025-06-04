@@ -54,12 +54,6 @@ export function PokemonCards() {
           <span>Abilities:</span>
         </div>
       </div>
-
-      {/* Ações disponíveis para cada card: editar ou apagar o Pokémon */}
-      <div className="card-actions">
-        <button className="btn-edit">Editar</button>
-        <button className="btn-delete">Apagar</button>
-      </div>
     </li>
   );
 };
